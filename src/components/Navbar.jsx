@@ -13,7 +13,7 @@ import { Container } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "rgba(23, 26, 41,0.1)",
+    backgroundColor: "white",
     height:'70px'
   },
   menuButton: {

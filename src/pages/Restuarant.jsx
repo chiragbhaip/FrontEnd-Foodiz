@@ -9,49 +9,54 @@ import foodData from "../data/FoodData";
 import NavAppBar from "../components/Navbar";
 import FooterGrid from "../components/Footer";
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     marginTop: 12,
-    width: "100%",
+    width: "100%"
   },
   restBack: {
-   // marginTop: "3%",
+    // marginTop: "3%",
     height: "auto",
     width: "100%",
-    backgroundColor: "rgb(233,236,238)",
+    backgroundColor: "#171a29",
+    marginTop: "2%"
   },
   imgContainer: {
     //marginTop: "20px",
     width: "80%",
     height: "100%",
     marginLeft: "3%",
-    marginBottom: "12%",
+    marginBottom: "12%"
   },
   control: {
-    padding: theme.spacing(),
+    padding: theme.spacing()
   },
   img: {
     width: "100%",
     height: "100%",
     marginLeft: "3%",
-    marginBottom: "2%",
+    marginBottom: "2%"
   },
   restDetails: {
     marginLeft: "70px",
+    color: "white"
   },
-  Typography: {
-    fontSize: "12px",
+  typographyDetails: {
+    letterSpacing:'1px',
+    fontFamily: 'ProximaNova,Arial,Helvetica Neue,sans-serif',
+    paddingTop:'5px',
+   // fontSize: '14px',
+    lineHeight: '1.2',
   },
   random: {
     width: "200px",
     //  border: '1px solid white',
-    height: "200px",
+    height: "200px"
   } /*
   Grid: {
     backgroundColor: "rgb(23,26,41)",
-  }, */,
+  }, */
 }));
 
 const Restaurant = ({ match }) => {
@@ -68,8 +73,8 @@ const Restaurant = ({ match }) => {
   // console.log(items);
 
   //filter based on  search
-  const handleSearch = (value) => {
-    let filteredItems = items.filter((search) => {
+  const handleSearch = value => {
+    let filteredItems = items.filter(search => {
       return (
         search.description.toLowerCase().includes(value) ||
         search.title.toLowerCase().includes(value)
@@ -77,7 +82,7 @@ const Restaurant = ({ match }) => {
     });
 
     if (vegChecked === true && value !== "") {
-      let filteredItemsVeg = items.filter((search) => {
+      let filteredItemsVeg = items.filter(search => {
         return (
           (search.type === "veg" &&
             search.description.toLowerCase().includes(value)) ||
@@ -92,15 +97,15 @@ const Restaurant = ({ match }) => {
   };
 
   //filter based on veg-only..
-  const handleChange = (event) => {
-    alert()
+  const handleChange = event => {
+    alert();
     if (vegChecked === true) {
       setvegChecked(false);
       setItems(data);
     } else {
       setvegChecked(true);
 
-      let filter = data.filter((d) => d.type === event.target.value);
+      let filter = data.filter(d => d.type === event.target.value);
       console.log("veg data", filter);
       console.log(event.target.value);
       setItems(filter);
@@ -113,7 +118,7 @@ const Restaurant = ({ match }) => {
   return (
     <>
       {/* Navbar */}
-    <NavAppBar></NavAppBar>
+      <NavAppBar></NavAppBar>
 
       <div className={classes.restBack} component="span" mt={5} ml={5}>
         <Grid container item className={classes.root}>
@@ -133,6 +138,7 @@ const Restaurant = ({ match }) => {
                 variant="h4"
                 component="h2"
                 style={{ fontStyle: "bolder" }}
+                className={classes.typographyDetails}
               >
                 Id is : {match.params.id}
                 <br />
@@ -140,28 +146,50 @@ const Restaurant = ({ match }) => {
               </Typography>
               <Typography
                 variant="body2"
-                color="rgb(234,255,255)"
+                color="#171A29"
                 component="subtitle"
+                className={classes.typographyDetails}
               >
                 Punjabi, Chinese, NorthIndian
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography
+                variant="body2"
+                color="#171A29"
+                className={classes.typographyDetails}
+                component="p"
+              >
                 Costs Rs.200 for one
               </Typography>
-              <Typography variant="body2" color="textPrimary">
+              <Typography
+                variant="body2"
+                className={classes.typographyDetails}
+                color="#171A29"
+              >
                 Minimum order Rs.1000
               </Typography>
-              <Typography variant="body2" color="textPrimary">
+              <Typography
+                variant="body2"
+                className={classes.typographyDetails}
+                color="#171A29"
+              >
                 Anything
               </Typography>
               <br />
-              <Typography variant="body2" color="textPrimary">
+              <Typography
+                variant="body2"
+                className={classes.typographyDetails}
+                color="#171A29"
+              >
                 <b>Address</b>: Navrangpura, Navrangpura
               </Typography>
-              <Typography variant="body2" color="textPrimary">
+              <Typography variant="body2"  className={classes.typographyDetails} color="#171A29">
                 Call: +91 9198765423
               </Typography>
-              <Typography variant="body2" color="textPrimary">
+              <Typography
+                variant="body2"
+                className={classes.typographyDetails}
+                color="#171A29"
+              >
                 Dine-In Timing: 1pm to 12am
               </Typography>
             </div>
@@ -189,7 +217,7 @@ const Restaurant = ({ match }) => {
             xs={12}
             sm={9}
             style={{
-              paddingLeft: "50px",
+              paddingLeft: "50px"
             }}
             lg={6}
             md={6}
@@ -221,7 +249,7 @@ const Restaurant = ({ match }) => {
               marginTop: 20,
               marginLeft: "80",
               paddingLeft: 10,
-              float: "right",
+              float: "right"
             }}
           >
             <Checkbox
