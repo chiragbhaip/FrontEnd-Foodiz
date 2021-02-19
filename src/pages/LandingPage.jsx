@@ -23,6 +23,19 @@ import foodData from "../data/Restaurants";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Oi',
+      'cursive',
+    ].join(','),
+  },});
+ 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -181,6 +194,7 @@ export default function LandingPage() {
   // console.log(restaurants);
   // console.log(restaurants._id);
   return (
+    <ThemeProvider theme={theme}>
     <div>
       <Grid item container xs={12} sm={12} md={12} lg={12}>
         <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -289,5 +303,6 @@ export default function LandingPage() {
 
       {/* <RecipeReviewCard></RecipeReviewCard> */}
     </div>
+     </ThemeProvider>
   );
 }

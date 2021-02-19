@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
      marginTop: '5%',
   //  padding: "2%",
     height: "auto",
-    backgroundColor: "#2c446e",
+    backgroundColor: "#d8dee8",
     flexGrow: 1,
   },
   paper: {
@@ -36,12 +36,12 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     marginTop: "6%",
     paddingTop: "30%",
-    backgroundColor: "#d8dee8",
+    backgroundColor: "#2c446e",
     height: "90vh",
   },
   tabtext: {
     fontSize: "20px",
-    color: "#2c446e",
+    color:'#d8dee8',
     textAlign: "left",
   },
   labelContainer: {
