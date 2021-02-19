@@ -35,12 +35,12 @@ function App() {
       {/* <DrawerExample></DrawerExample> */}
       
       {/* ROUTES  */}
-     {/*  <Route path='/allrestaurants/:id' exact component={RestaurantContainer}></Route>
+     <Route path='/allrestaurants/:id' exact component={RestaurantContainer}></Route>
       <Route path='/allrestaurants' exact component={AllRestaurants}></Route>
       <Route path='/order-summary' exact component={OrderSummary}></Route>
       <Route path='/profile' exact component={ProfileSection}></Route>
       <Route path='/cart' exact component={Cart}></Route>
-      <Route path='/' exact component={LandingPage}></Route> */}
+      <Route path='/' exact component={LandingPage}></Route>
 
 
       {/* <RestaurantContainer>   </RestaurantContainer> */}

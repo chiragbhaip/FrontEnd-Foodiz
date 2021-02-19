@@ -9,6 +9,7 @@ import foodData from "../data/FoodData";
 import NavAppBar from "../components/Navbar";
 import FooterGrid from "../components/Footer";
 import Carousels from "../components/Carousels";
+import  StarRateIcon  from '@material-ui/icons/StarRate';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
   imgContainer: {
     //marginTop: "20px",
     width: "100%",
-      height: "100%",
-    padding:'2%'
+    height: "100%",
+    padding: "2%",
     /*   marginLeft: "3%",
     marginBottom: "12%", */
   },
@@ -38,12 +39,22 @@ const useStyles = makeStyles((theme) => ({
     width: "90%",
     height: "100%",
     marginLeft: "3%",
-      marginBottom: "2%",
-//marginTop:'2%'
+    marginBottom: "2%",
+    //marginTop:'2%'
   },
   restDetails: {
     marginLeft: "70px",
     color: "black",
+  },
+  restDetailRating: {
+    paddingRight: "8px",
+    //border: "1px solid black",
+    marginTop: "1rem",
+  },
+  restDetailRatingDiv: {
+    marginRight: "1.5rem",
+    paddingRight: "1rem",
+    paddingTop: "1rem",
   },
   typographyDetails: {
     letterSpacing: "1px",
@@ -62,8 +73,8 @@ const useStyles = makeStyles((theme) => ({
   }, */,
 
   orderbox: {
-      marginTop: "5%",
-      marginBottom: "5%",
+    marginTop: "5%",
+    marginBottom: "5%",
     height: "50vh",
     backgroundColor: "white",
     boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
@@ -76,6 +87,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     color: "#171a29",
   },
+  checkBoxStyle: {
+    float: "right",
+  },
+  rating: {
+    marginTop: "5%",
+    width: "60px",
+    backgroundColor: "#48c479",
+    color: "white"
+  }
 }));
 
 const RestaurantContainer = ({ match }) => {
@@ -139,20 +159,20 @@ const RestaurantContainer = ({ match }) => {
       {/* Navbar */}
       <NavAppBar></NavAppBar>
 
-    {/*   <div className={classes.restBack} component="span" mt={5} ml={5}>
+      {/*   <div className={classes.restBack} component="span" mt={5} ml={5}>
         <Grid container item className={classes.root}>
           <Grid container item xs={12} s={12} md={4} lg={3}></Grid>
           <Grid item xs={12} s={12} md={8} lg={9} style={{ marginTop: 40 }}>
             <div className={classes.restDetails}> */}
-              {/*   <Carousels></Carousels> */}
-          {/*   </div>
+      {/*   <Carousels></Carousels> */}
+      {/*   </div>
           </Grid> */}
 
-          {/*  <Grid item xs={false} sm={1} />  */}
+      {/*  <Grid item xs={false} sm={1} />  */}
       {/*   </Grid> */}
 
-        {/* below Restuarent detail!1 */}
-   {/*    </div> */}
+      {/* below Restuarent detail!1 */}
+      {/*    </div> */}
 
       <Container>
         <Grid container className={classes.orderbox}>
@@ -173,11 +193,11 @@ const RestaurantContainer = ({ match }) => {
             lg={10}
             className={classes.grid2}
           >
-            <Grid item xs={12} s={12} md={5} lg={5}>
+            <Grid item xs={12} s={12} md={5} lg={6}>
               <div className={classes.restDetails}>
                 <Typography
                   gutterBottom
-                  variant="h4"
+                  variant="h2"
                   component="h2"
                   style={{ fontStyle: "bolder" }}
                   className={classes.typographyDetails}
@@ -187,28 +207,14 @@ const RestaurantContainer = ({ match }) => {
                   The Bean Box
                 </Typography>
                 <Typography
-                  variant="body2"
+                  variant="subtitle"
                   color="#171A29"
                   component="subtitle"
                   className={classes.typographyDetails}
                 >
                   Punjabi, Chinese, NorthIndian
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="#171A29"
-                  className={classes.typographyDetails}
-                  component="p"
-                >
-                  Costs Rs.200 for one
-                </Typography>
-                <Typography
-                  variant="body2"
-                  className={classes.typographyDetails}
-                  color="#171A29"
-                >
-                  Minimum order Rs.1000
-                </Typography>
+
                 <Typography
                   variant="body2"
                   className={classes.typographyDetails}
@@ -238,10 +244,25 @@ const RestaurantContainer = ({ match }) => {
                 >
                   Dine-In Timing: 1pm to 12am
                 </Typography>
+                <Box
+                  display="flex"
+                  direction="row"
+                  className={classes.restDetailRating}
+                >
+                  <div className={classes.restDetailRatingDiv}> <p className={classes.rating}> <StarRateIcon /> 5.0</p></div>
+                  <div className={classes.restDetailRatingDiv}>
+                    <b>Rs.1000</b> <br /> Minimum order{" "}
+                  </div>
+                  <div className={classes.restDetailRatingDiv}>
+                    <b>Rs. 200 </b>
+                    <br />
+                    Costs for Two
+                  </div>
+                </Box>
               </div>
             </Grid>
             {/* ImageSEction */}
-            <Grid item xs={12} sm={12} md={7} lg={7}>
+            <Grid item xs={12} sm={12} md={7} lg={6}>
               <Box className={classes.imgContainer}>
                 <img
                   className={classes.img}
@@ -300,19 +321,22 @@ const RestaurantContainer = ({ match }) => {
             md={3}
             style={{
               marginTop: 20,
-             //   marginLeft: "80",
-             right:'10px',
-             // paddingLeft: 10,
-              //float: "right",
+              right: "10px",
             }}
           >
-            <Checkbox
+            {/*  <Checkbox
               checked={vegChecked}
               value="veg"
               onChange={handleChange}
               inputProps={{ "aria-label": "primary checkbox" }}
-            />
-            Veg Only
+            /> */}
+            <div className={classes.checkBoxStyle}>
+              {" "}
+              <Checkbox
+                inputProps={{ "aria-label": "uncontrolled-checkbox" }}
+              />{" "}
+              Veg Only
+            </div>
           </Grid>
         </Grid>
       </Container>

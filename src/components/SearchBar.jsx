@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
-    backgroundColor: "#edebeb",
+    backgroundColor: "#ffffff",
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -143,7 +143,7 @@ export default function CustomizedInputBase(props) {
           placeholder="Search Items"
           onChange={handleSearch}
           inputProps={{ "aria-label": "search for items" }}
-         // endAdornment={<SearchIcon className={classes.iconButton} />}
+          endAdornment={<SearchIcon />}
         />
           
         </Grid>
