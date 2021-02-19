@@ -19,18 +19,21 @@ import NavAppBar from "../components/Navbar";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop:'2%',
     //margin: "2%",
     // backgroundColor:'#e4e3ff'
   },
   paper: {
+  
     padding: theme.spacing(4),
-    // border: "1px solid rgb(23,26,41)",
+     border: "1px solid rgb(23,26,41)",
     // height: "50vh",
     //textAlign: "center",
     // color: theme.palette.text.secondary,
   },
   paperAddress: {
     padding: theme.spacing(4),
+    border: "1px solid rgb(23,26,41)",
     // background:'#f5f5ff'
   },
   details: {
@@ -136,7 +139,7 @@ const initialAddressState = {
   zipCode: "",
   phoneNo: "",
 };
-export default function Cart() {
+export default function Cart(props) {
   const classes = useStyles();
   const [totalprice, setTotalPrice] = useState(0);
   const [items, setItems] = useState([]);
@@ -166,7 +169,7 @@ export default function Cart() {
   const handlePlaceOrder = (items, address) => {
     console.log("order for items", items);
     console.log("delivery address", address);
-
+    props.history.push('/order-summary');
     //redirection to order Summary Page
   };
 

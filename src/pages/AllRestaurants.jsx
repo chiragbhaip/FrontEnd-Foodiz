@@ -109,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
           backgroundColor: "white !important"
 
         } */
+        boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
     "&:hover": { transform: "translate3D(0,-7px,0) scale(1.05)" },
   },
 

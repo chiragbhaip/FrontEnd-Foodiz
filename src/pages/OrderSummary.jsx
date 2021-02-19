@@ -9,6 +9,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import NavAppBar from "../components/Navbar";
+import FooterGrid from "../components/Footer";
+import { grid } from "@material-ui/system";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -17,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   paper: {
-    width: "auto",
+   /*  width: "auto", */
     height: "auto",
     // margin: "10%",
     /*  marginLeft: "20px",
@@ -26,15 +29,15 @@ const useStyles = makeStyles((theme) => ({
   },
   orderBackground: {
     // height: "auto",
-    backgroundImage: `url('https://image.freepik.com/free-photo/top-view-copy-space-limes-with-lemon-cutting-board-gray-background_141793-49761.jpg')`,
+  /*   backgroundImage: `url('https://image.freepik.com/free-photo/top-view-copy-space-limes-with-lemon-cutting-board-gray-background_141793-49761.jpg')`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "cover", */
     // marginTop: "2%",
     padding: "20px",
     // width: "100%",
   },
   table: {
-    minWidth: 650,
+    minWidth: 'auto',
     padding: "10%",
   },
   sectionGrid: {
@@ -60,101 +63,108 @@ const OrderSummary = () => {
   const classes = useStyles();
   return (
     <>
+      <NavAppBar />
       <div className={classes.root}>
-        {/* <Container maxWidth="lg" > */}
-        <Grid className={classes.orderBackground}>
-          <Grid item container lg={12} md={12} sm={12} xs={12}>
-            <Paper className={classes.paper}>
-              <Grid item conatiner lg={12} md={12} sm={12} xs={12}>
-                <Typography variant="h4">
-                  Order Id: <b>#2876428712</b>
-                </Typography>
-              </Grid>
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                container
-                className={classes.sectionGrid}
-              />
-              <Grid item lg={12}>
-                Your order has been placed successfully!
-              </Grid>
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                container
-                className={classes.sectionGrid}
-              />
-              <div className={classes.centralBorder}></div>
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                container
-                className={classes.sectionGrid}
-              />
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                container
-                className={classes.sectionGrid}
-              />{" "}
-              <Grid
-                item
-                lg={12}
-                md={12}
-                sm={12}
-                xs={12}
-                container
-                className={classes.sectionGrid}
-              />
-              <Grid item container lg={12} md={12} sm={12} xs={12}>
-                <TableContainer>
-                  <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>
-                          <b>Food Item</b>
-                        </TableCell>
-
-                        <TableCell align="right">
-                          <b>Quantity</b>
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows.map((row) => (
-                        <TableRow key={row.name}>
-                          <TableCell component="th" scope="row">
-                            {row.name}
+        <Container>
+          <Grid container spacing={2}>
+            <Grid item lg={8}>Product Details section</Grid>
+            <Grid item  lg={4} md={4} sm={4} xs={4}>
+              <Paper className={classes.paper}>
+                <Grid item conatiner lg={12} md={12} sm={12} xs={12}>
+                  <Typography variant="h4">
+                    Order Id: <b>#2876428712</b>
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  container
+                  className={classes.sectionGrid}
+                />
+                <Grid item lg={12}>
+                  Your order has been placed successfully!
+                </Grid>
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  container
+                  className={classes.sectionGrid}
+                />
+                <div className={classes.centralBorder}></div>
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  container
+                  className={classes.sectionGrid}
+                />
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  container
+                  className={classes.sectionGrid}
+                />{" "}
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  container
+                  className={classes.sectionGrid}
+                />
+                <Grid item container lg={12} md={12} sm={12} xs={12}>
+                  <TableContainer>
+                    <Table className={classes.table} aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>
+                            <b>Food Item</b>
                           </TableCell>
 
-                          <TableCell align="right">{row.protein}</TableCell>
+                          <TableCell align="right">
+                            <b>Quantity</b>
+                          </TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Grid>
-              <div className={classes.centralBorder}></div>
-              <Grid container justify="flex-end" style={{ marginTop: "20px" }}>
-                <Typography variant="h6">Total Amount : 2500</Typography>
-              </Grid>
-            </Paper>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow key={row.name}>
+                            <TableCell component="th" scope="row">
+                              {row.name}
+                            </TableCell>
+
+                            <TableCell align="right">{row.protein}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+                <div className={classes.centralBorder}></div>
+                <Grid
+                  container
+                  justify="flex-end"
+                  style={{ marginTop: "20px" }}
+                >
+                  <Typography variant="h6">Total Amount : 2500</Typography>
+                </Grid>
+              </Paper>
+            </Grid>
           </Grid>
-        </Grid>
-        {/*   </Container> */}
+        </Container>
+        <FooterGrid />
       </div>
     </>
   );

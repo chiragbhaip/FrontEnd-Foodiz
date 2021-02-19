@@ -179,7 +179,7 @@ export default function ItemCard(props) {
         >
           <Alert
             onClose={handleCloseSnackBar}
-            style={{ backgroundColor: "#157a21", width:'200px' }}
+            style={{ backgroundColor: "#157a21", width:'250px' }}
           >
             Item added to cart!
           </Alert>

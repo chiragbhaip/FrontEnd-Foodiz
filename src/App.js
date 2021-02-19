@@ -10,6 +10,9 @@ import AllRestaurants from './pages/AllRestaurants';
 import RecipeReviewCard from './card';
 import Restaurant from './pages/Restuarant';
 import Cart from './pages/Cart';
+import OrderSummary from './pages/OrderSummary';
+import RestaurantContainer from './pages/RestaurantContainer'
+import AwesomeSlider from 'react-awesome-slider';
 
 function App() {
   return (
@@ -32,11 +35,17 @@ function App() {
       {/* <DrawerExample></DrawerExample> */}
       
       {/* ROUTES  */}
-      <Route path='/allrestaurants/:id' exact component={Restaurant}></Route>
+     {/*  <Route path='/allrestaurants/:id' exact component={RestaurantContainer}></Route>
       <Route path='/allrestaurants' exact component={AllRestaurants}></Route>
+      <Route path='/order-summary' exact component={OrderSummary}></Route>
       <Route path='/profile' exact component={ProfileSection}></Route>
       <Route path='/cart' exact component={Cart}></Route>
-      <Route path='/' exact component={LandingPage}></Route>
+      <Route path='/' exact component={LandingPage}></Route> */}
+
+
+      {/* <RestaurantContainer>   </RestaurantContainer> */}
+    {/*  <AwesomeSlider /> */}
+      
     </div>
   );
 }

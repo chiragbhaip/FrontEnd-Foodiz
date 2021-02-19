@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     height: "auto",
     width: "100%",
     backgroundColor: "#171a29",
-    marginTop: "2%"
+    // marginTop: "2%"
   },
   imgContainer: {
     //marginTop: "20px",
