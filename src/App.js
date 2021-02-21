@@ -13,6 +13,7 @@ import Cart from './pages/Cart';
 import OrderSummary from './pages/OrderSummary';
 import RestaurantContainer from './pages/RestaurantContainer'
 import AwesomeSlider from 'react-awesome-slider';
+import DeliveryPage from './pages/DeliveryPage';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         {/* <NavAppBar></NavAppBar> */}
        {/*  <RecipeReviewCard></RecipeReviewCard> */}
       {/* <FooterGrid fixed></FooterGrid> */}
-
+    
       {/* URVASHI */}
             
 {/* <Restaurant />  */}
@@ -41,7 +42,7 @@ function App() {
       <Route path='/profile' exact component={ProfileSection}></Route>
       <Route path='/cart' exact component={Cart}></Route>
       <Route path='/' exact component={LandingPage}></Route>
-
+      <Route path='/deliverypage' exact component={DeliveryPage}></Route>
 
       {/* <RestaurantContainer>   </RestaurantContainer> */}
     {/*  <AwesomeSlider /> */}
