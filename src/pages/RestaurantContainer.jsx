@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { Container, Box, Checkbox, Paper } from "@material-ui/core";
+import { Container, Box, Checkbox, Paper, FormControlLabel } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import SearchBar from "../components/SearchBar";
 import RestaurantItems from "../components/RestaurantItems";
@@ -10,12 +10,32 @@ import NavAppBar from "../components/Navbar";
 import FooterGrid from "../components/Footer";
 import Carousels from "../components/Carousels";
 import  StarRateIcon  from '@material-ui/icons/StarRate';
+import RestaurantInfoCarausal from './../components/RestaurantInfoCarausal';
+import EcoIcon from '@material-ui/icons/Eco';
+import EcoOutlinedIcon from '@material-ui/icons/EcoOutlined';
+/* caraausaal data */
+import images from '../data/RestCarausalData';
+
+const GreenCheckbox = withStyles({
+  root: {
+    color:'#171a29',
+    '&$checked': {
+      color:'#171a29',
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: 12,
     width: "100%",
+    '& > *': {
+      margin: theme.spacing(1),
+      width: theme.spacing(16),
+      height: theme.spacing(16),
+    },
   },
   restBack: {
     // marginTop: "3%",
@@ -26,25 +46,18 @@ const useStyles = makeStyles((theme) => ({
   },
   imgContainer: {
     //marginTop: "20px",
-    width: "100%",
+    width: "97%",
     height: "100%",
-    padding: "2%",
-    /*   marginLeft: "3%",
-    marginBottom: "12%", */
+
+     
   },
   control: {
     padding: theme.spacing(),
   },
-  img: {
-    width: "90%",
-    height: "100%",
-    marginLeft: "3%",
-    marginBottom: "2%",
-    //marginTop:'2%'
-  },
   restDetails: {
     marginLeft: "70px",
     color: "black",
+    marginBottom:'2%'
   },
   restDetailRating: {
     paddingRight: "8px",
@@ -75,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
   orderbox: {
     marginTop: "5%",
     marginBottom: "5%",
-    height: "50vh",
+    height: "auto ",
     backgroundColor: "white",
     boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
   },
@@ -95,14 +108,20 @@ const useStyles = makeStyles((theme) => ({
     width: "60px",
     backgroundColor: "#48c479",
     color: "white"
-  }
+  },
+  vegSection:{
+      width:'auto',
+      height:'40px',
+      boxShadow: "0 10px 20px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.22)",
+      padding:'5px'
+  },
 }));
 
-const RestaurantContainer = ({ match }) => {
+const RestaurantContainer = ({  }) => {
   const classes = useStyles();
   const [items, setItems] = useState([]);
   const [vegChecked, setvegChecked] = useState(false);
-
+ const allVeg = items.every((item)   =>item.type==='veg');
   const data = foodData();
 
   useEffect(async () => {
@@ -137,7 +156,7 @@ const RestaurantContainer = ({ match }) => {
 
   //filter based on veg-only..
   const handleChange = (event) => {
-    alert();
+  
     if (vegChecked === true) {
       setvegChecked(false);
       setItems(data);
@@ -261,14 +280,12 @@ const RestaurantContainer = ({ match }) => {
                 </Box>
               </div>
             </Grid>
+
             {/* ImageSEction */}
             <Grid item xs={12} sm={12} md={7} lg={6}>
               <Box className={classes.imgContainer}>
-                <img
-                  className={classes.img}
-                  alt=""
-                  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                />
+          {/*Rest caaarausala for images */}
+                <RestaurantInfoCarausal images={images}/>
               </Box>
             </Grid>
           </Grid>
@@ -324,18 +341,19 @@ const RestaurantContainer = ({ match }) => {
               right: "10px",
             }}
           >
-            {/*  <Checkbox
-              checked={vegChecked}
-              value="veg"
-              onChange={handleChange}
-              inputProps={{ "aria-label": "primary checkbox" }}
-            /> */}
             <div className={classes.checkBoxStyle}>
-              {" "}
-              <Checkbox
-                inputProps={{ "aria-label": "uncontrolled-checkbox" }}
-              />{" "}
-              Veg Only
+         
+             { console.log('veg irem check',items.every((item)   =>item.type==='veg'))}
+       { allVeg ? <Paper class={classes.vegSection}><EcoOutlinedIcon classes={classes.ecoOutlinedIcon} style={{color :'green', transform:'scaleX(-1)'}}/> <EcoIcon style={{marginLeft:'-13px',color :'green'}}/><b>Pure Veg</b> </Paper>
+       : 
+       <Paper class="classes.vegSection">
+         <FormControlLabel
+        control={<GreenCheckbox checked={vegChecked} value="veg" onChange={handleChange} />}
+        label="Veg Only"
+        />  
+      </Paper>}
+             
+             
             </div>
           </Grid>
         </Grid>
