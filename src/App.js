@@ -14,7 +14,7 @@ import OrderSummary from './pages/OrderSummary';
 import RestaurantContainer from './pages/RestaurantContainer'
 import AwesomeSlider from 'react-awesome-slider';
 import DeliveryPage from './pages/DeliveryPage';
-
+import DeliveryLandingPage from './pages/DeliveryLandingPage'
 function App() {
   return (
     <div className="App">
@@ -43,6 +43,9 @@ function App() {
       <Route path='/cart' exact component={Cart}></Route>
       <Route path='/' exact component={LandingPage}></Route>
       <Route path='/deliverypage' exact component={DeliveryPage}></Route>
+
+      
+      {/* <Route path='/deliverylandingpage' exact component={DeliveryLandingPage}></Route> */}
 
       {/* <RestaurantContainer>   </RestaurantContainer> */}
     {/*  <AwesomeSlider /> */}

@@ -51,7 +51,7 @@ export default function NavAppBar() {
             </Link>
 
             <Link style={{ textDecoration: "none", color: "rgb(23, 26, 41)" }} to={`/deliverypage/`}>
-              <Button color="inherit">Delivery Page</Button>
+              <Button color="inherit">Delivery</Button>
             </Link>
             {/*  <Link
               style={{ textDecoration: "none", color: "rgb(23, 26, 41)" }}
