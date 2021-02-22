@@ -8,13 +8,12 @@ import  Container  from '@material-ui/core/Container';
 import  Typography  from '@material-ui/core/Typography';
 import AllRestaurants from './pages/AllRestaurants';
 import RecipeReviewCard from './card';
-import Restaurant from './pages/Restuarant';
 import Cart from './pages/Cart';
-import OrderSummary from './pages/OrderSummary';
+import OrderSummaryPage from './pages/OrderSummaryPage';
 import RestaurantContainer from './pages/RestaurantContainer'
-import AwesomeSlider from 'react-awesome-slider';
 import DeliveryPage from './pages/DeliveryPage';
 import DeliveryLandingPage from './pages/DeliveryLandingPage'
+
 function App() {
   return (
     <div className="App">
@@ -36,19 +35,17 @@ function App() {
       {/* <DrawerExample></DrawerExample> */}
       
       {/* ROUTES  */}
-   {/*  { <Route path='/allrestaurants/:id' exact component={RestaurantContainer}></Route>
-      <Route path='/allrestaurants' exact component={AllRestaurants}></Route>
-      <Route path='/order-summary' exact component={OrderSummary}></Route>
-      <Route path='/profile' exact component={ProfileSection}></Route>
-      <Route path='/cart' exact component={Cart}></Route>
-      <Route path='/' exact component={LandingPage}></Route>
-      <Route path='/deliverypage' exact component={DeliveryPage}></Route>
+   {/*    <Route path='/allrestaurants/:id' exact component={RestaurantContainer}></Route>
+      <Route path='/allrestaurants' exact component={AllRestaurants}></Route>  */}
+   {/*    <Route path='/order-summary' exact component={OrderSummaryPage}></Route> */}
+     {/*  <Route path='/profile' exact component={ProfileSection}></Route>
+      <Route path='/cart' exact component={Cart}></Route>*/}
+ <Route path='/' exact component={LandingPage}></Route>
+   {/*   <Checkboxes></Checkboxes> */}
 
-      
-      {/* <Route path='/deliverylandingpage' exact component={DeliveryLandingPage}></Route> */}
-
-      {/* <RestaurantContainer>   </RestaurantContainer> */}
-    {/*  <AwesomeSlider /> */}
+   {/*   <RestaurantContainer>   </RestaurantContainer>   */}
+          {/*     <Route path='/deliverylandingpage' exact component={DeliveryLandingPage}></Route> 
+              <Route path='/deliverypage' exact component={DeliveryPage}></Route> */}
       
     </div>
   );

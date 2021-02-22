@@ -32,7 +32,6 @@ textAlign: 'center',
   paper: {
     padding: theme.spacing(4),
     textAlign: 'left',
-    
     color: 'white',
     backgroundColor: '#0c752b',
     height: 'auto'
