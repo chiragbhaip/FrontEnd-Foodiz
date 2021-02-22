@@ -43,7 +43,7 @@ const data = [
 {
     "_id": '5',
     "price": '200',
-    "type":"nonveg",
+    "type":"veg",
     "description": 'anyting in meat NON',
     "imageUrl": 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     "title": 'Meat Combo',

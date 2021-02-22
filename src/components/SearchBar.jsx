@@ -26,18 +26,23 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: 860,
+
   },
   rootItems: {
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
     width: "100%",
-    backgroundColor: "#ffffff",
+    height: "60%",
+    backgroundColor:"#ffffff",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.22)",
   },
   input: {
     marginLeft: theme.spacing(1),
     flex: "1 auto",
     width:'100%',
+    color:'#171a29',
+    fontWeight:'bold',
     position: "relative",
   },
   results: {
