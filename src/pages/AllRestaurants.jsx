@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import NavAppBar from "../components/Navbar";
 import FooterGrid from "../components/Footer";
 import foodData from "../data/Restaurants";
@@ -18,6 +18,7 @@ import CardActions from "@material-ui/core/CardActions";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import SearchBar from "material-ui-search-bar";
 import FullWidthTabs from '../components/ratings';
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -109,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
           backgroundColor: "white !important"
 
         } */
-        boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
+    boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
     "&:hover": { transform: "translate3D(0,-7px,0) scale(1.05)" },
   },
 
@@ -154,7 +155,14 @@ const handleId = (rest) => {
 
 export default function AllRestaurants() {
   const classes = useStyles();
-  const restaurants = foodData();
+  // const restaurants = foodData();
+  const [restaurants,setRestaurants]=useState([]);
+  useEffect(async ()=>{
+    console.log("sdfsdf");
+    const res=await axios.get('http://localhost:5000/restaurant/getrestaurants');
+    console.log(res);
+    setRestaurants(res.data);
+  },[])
 
   return (
     <React.Fragment>
@@ -166,12 +174,8 @@ export default function AllRestaurants() {
         </Typography>
         <SearchBar
           className={classes.searchbar}
-          placeholder="Search for Restaurants or dishes.."
-        />
-
-
-
-<FullWidthTabs></FullWidthTabs>
+          placeholder="Search for Restaurants or dishes.."/>
+        <FullWidthTabs></FullWidthTabs>
 
         <Grid
           item
@@ -181,8 +185,8 @@ export default function AllRestaurants() {
           className={classes.restcontainer}
         >
           <Grid item container xs={12} sm={12} md={12} lg={12} spacing={6}>
-            {restaurants.map((rest) => (
-              <Grid item xs={12} sm={6} md={6} lg={4}>
+            {restaurants.map((rest,index) => (
+              <Grid item xs={12} sm={6} md={6} lg={4} key={index}>
                 <div className={classes.cardborder}>
                   <Link
                     style={{ textDecoration: "none" }}
@@ -192,20 +196,20 @@ export default function AllRestaurants() {
                       <CardActionArea>
                         <CardMedia
                           className={classes.media}
-                          image={rest.imageUrl}
+                          image={rest.restaurantImages[0]}
                           title=""
                           onClick={() => handleId(rest)}
                         />
                         <CardContent>
                           <Typography gutterBottom variant="h5" component="h2">
-                            {rest.title}
+                            {rest.restaurantName}
                           </Typography>
                           <Typography
                             variant="body2"
                             color="textSecondary"
                             component="p"
                           >
-                            {rest.description}
+                            {/* {rest.description} */}
                           </Typography>
 
                           <Typography
@@ -213,7 +217,7 @@ export default function AllRestaurants() {
                             color="textSecondary"
                             component="h3"
                           >
-                            Rs. {rest.price} for Two
+                            {/* Rs. {rest.price} for Two */}
                           </Typography>
                           <Typography>
                             <p className={classes.rating}>
@@ -232,7 +236,7 @@ export default function AllRestaurants() {
           </Grid>
 
 
-          
+
         </Grid>
       </Container>
 

@@ -21,6 +21,7 @@ import EcoIcon from "@material-ui/icons/Eco";
 import EcoOutlinedIcon from "@material-ui/icons/EcoOutlined";
 /* caraausaal data */
 import images from "../data/RestCarausalData";
+import axios from "axios";
 
 const GreenCheckbox = withStyles({
   root: {
@@ -115,15 +116,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RestaurantContainer = ({}) => {
+const RestaurantContainer = (props) => {
   const classes = useStyles();
   const [items, setItems] = useState([]);
   const [vegChecked, setvegChecked] = useState(false);
   const allVeg = items.every((item) => item.type === "veg");
   const data = foodData();
+  const [restaurantData, setRestaurant] = useState({});
 
   useEffect(async () => {
     await setItems(data);
+    console.log(props.match.params.restaurantId);
+    const res = await axios.get('http://localhost:5000/restaurant/getrestaurantbyid/' + props.match.params.restaurantId)
+    console.log(res);
+    setRestaurant(res.data);
+    setItems(res.data.menuDetails);
   }, []);
 
   // console.log(items);
@@ -219,7 +226,7 @@ const RestaurantContainer = ({}) => {
                 >
                   {/*   Id is : {match.params.id} */}
                   <br />
-                  The Bean Box
+                  {restaurantData.restaurantName}
                 </Typography>
                 <Typography
                   variant="subtitle"
@@ -227,7 +234,11 @@ const RestaurantContainer = ({}) => {
                   component="subtitle"
                   className={classes.typographyDetails}
                 >
-                  Punjabi, Chinese, NorthIndian
+                  {
+                    restaurantData.restaurantCategory.map((category, index) => {
+                      return <>{category}</>
+                    })
+                  }
                 </Typography>
 
                 <Typography
@@ -356,20 +367,20 @@ const RestaurantContainer = ({}) => {
                   <b>Pure Veg</b>{" "}
                 </Paper>
               ) : null}
-             {/*  {!allVeg ? ( */}
-                <Paper class="classes.vegSection">
-                  <FormControlLabel
-                    control={
-                      <GreenCheckbox
-                        checked={vegChecked}
-                        value="veg"
-                        onChange={handleChange}
-                      />
-                    }
-                    label="Veg Only"
-                  />
-                </Paper>
-            {/*   ) : null} */}
+              {/*  {!allVeg ? ( */}
+              <Paper class="classes.vegSection">
+                <FormControlLabel
+                  control={
+                    <GreenCheckbox
+                      checked={vegChecked}
+                      value="veg"
+                      onChange={handleChange}
+                    />
+                  }
+                  label="Veg Only"
+                />
+              </Paper>
+              {/*   ) : null} */}
             </div>
           </Grid>
         </Grid>
@@ -380,7 +391,7 @@ const RestaurantContainer = ({}) => {
         sm={12}
         lg={12}
         md={12}
-        //style={{ marginTop: 20, marginLeft: "20", paddingLeft: 10 }}
+      //style={{ marginTop: 20, marginLeft: "20", paddingLeft: 10 }}
       >
         <RestaurantItems items={items} />
       </Grid>

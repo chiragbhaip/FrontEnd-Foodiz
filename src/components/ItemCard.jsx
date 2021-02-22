@@ -82,8 +82,8 @@ function Alert(props) {
 
 export default function ItemCard(props) {
   const classes = useStyles();
-  const { title, imageUrl, description, price, _id } = props;
-
+  // const { title, imageUrl, description, price, _id } = props;
+  const { _id,foodName,foodPrice,foodImage,foodDescription}=props
   /* const imageUrlSplit = imageUrl.split("\\");
   const finalImageUrl = `${process.env.REACT_APP_SERVER_URL}/${imageUrlSplit[0]}/${imageUrlSplit[1]}`; //3002 - server port
 
@@ -130,13 +130,13 @@ export default function ItemCard(props) {
         <div className={classes.details}>
           <CardContent className={classes.content}>
             <Typography component="h5" variant="h5">
-              {title}
+              {foodName}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary" noWrap>
-              {description}
+              {foodDescription}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              Rs.{price}
+              Rs.{foodPrice}
             </Typography>
           </CardContent>
 
@@ -166,7 +166,7 @@ export default function ItemCard(props) {
         <CardMedia
           justify="flex-end"
           className={classes.cover}
-          image={imageUrl}
+          image={foodImage}
           title="Item order"
         />
       </Card>
